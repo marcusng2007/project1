@@ -32,8 +32,8 @@ def get_entry(title):
     Retrieves an encyclopedia entry by its title. If no such
     entry exists, the function returns None.
     """
-    try:
-        f = default_storage.open(f"entries/{title}.md")
-        return f.read().decode("utf-8")
-    except FileNotFoundError:
-        raise Http404("Page doesn't exist D:")
+#    try:
+    f = default_storage.open(f"entries/{title}.md")
+    return f.read().decode("utf-8")
+#    except FileNotFoundError:
+#        raise Http404("Page doesn't exist D:")

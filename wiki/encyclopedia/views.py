@@ -49,6 +49,6 @@ def create(request):
             form: NewEntryForm()
 
 
-        return render(request, "encyclopedia/create.html", {'entry_form': form})
+#        return render(request, "encyclopedia/create.html", {'entry_form': form})
 
     return render(request, "encyclopedia/create.html", {'entry_form': form})
