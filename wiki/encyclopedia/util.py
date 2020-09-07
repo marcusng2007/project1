@@ -1,17 +1,49 @@
 import re
+import os
+import random
 
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.http import Http404
 
 
-def list_entries():
+
+def list_entries(query):
     """
     Returns a list of all names of encyclopedia entries.
     """
     _, filenames = default_storage.listdir("entries")
-    return list(sorted(re.sub(r"\.md$", "", filename)
-                for filename in filenames if filename.endswith(".md")))
+    lower_filename = [filename.lower() for filename in filenames]
+    print(lower_filename)
+    search_results = []
+
+
+    if query == "":
+        return list(sorted(re.sub(r"\.md$", "", filename) for filename in filenames if filename.endswith(".md")))
+
+    else:
+
+
+        for filename in lower_filename:
+
+
+            if filename.endswith(".md"):
+                match = filename.find(query)
+                if match == -1:
+                    print(f"No match for " + filename)
+                else:
+                    search_result = filename
+                    search_results.append(search_result)
+                    print("match for " + filename)
+
+
+
+
+
+
+        print(search_results)
+        return list(sorted(re.sub(r"\.md$", "", filename) for filename in search_results ))
+
 
 
 def save_entry(title, content):

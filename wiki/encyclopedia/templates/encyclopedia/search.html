@@ -1,18 +1,19 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Encyclopedia
+    SEARCH PAGE
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
+    <h1>Searching...</h1>
 
     <ul>
         {% for entry in entries %}
-            <li><a href="http://127.0.0.1:8000/entry/{{entry}}">{{ entry }}</li>
+            <li><a href="http://127.0.0.1:8000/entry/{{entry}}">{{ entry }}</li></a>
         {% endfor %}
 
-
+        
     </ul>
+
 
 {% endblock %}
